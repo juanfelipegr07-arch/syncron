@@ -1,0 +1,342 @@
+/* ============================================================
+   LAYOUT.CSS — Syncron AI
+   Fondo 3D, contenedor, nav, hero, grids de secciones, footer
+   y reorganización responsive base.
+   ============================================================ */
+
+/* --- Contenedor --- */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* --- Capa del fondo 3D + respaldo CSS --- */
+.scene-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  /* Respaldo si Three.js no carga: gradiente radial naranja sobre negro */
+  background:
+    radial-gradient(circle at 50% 32%, rgba(var(--naranja-rgb), 0.10), transparent 58%),
+    radial-gradient(circle at 82% 78%, rgba(var(--amarillo-rgb), 0.06), transparent 55%),
+    var(--fondo);
+}
+
+#scene-canvas {
+  position: fixed;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+/* Vignette fija que oscurece los bordes y da profundidad */
+.scene-vignette {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 38%,
+    rgba(var(--fondo-rgb), 0.55) 76%,
+    rgba(var(--fondo-rgb), 0.92) 100%
+  );
+}
+
+/* --- Barra de progreso de scroll --- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  z-index: 200;
+  background: linear-gradient(90deg, var(--naranja), var(--amarillo));
+  box-shadow: 0 0 12px rgba(var(--naranja-rgb), 0.7);
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  border-bottom: 1px solid transparent;
+  transition: background 0.35s var(--ease), border-color 0.35s var(--ease);
+}
+.nav.scrolled {
+  background: rgba(var(--fondo-rgb), 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom-color: var(--borde);
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  height: 68px;
+}
+
+.nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-right: auto;
+}
+.nav__logo {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+.nav__name {
+  font-family: var(--fuente-titulo);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+}
+.nav__name-accent {
+  color: var(--naranja);
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+.nav__links a {
+  font-size: 0.95rem;
+  color: var(--texto-muted);
+  transition: color 0.2s var(--ease);
+}
+.nav__links a:hover {
+  color: var(--texto);
+}
+
+/* Botón hamburguesa (oculto en desktop) */
+.nav__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+}
+.nav__toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--texto);
+  transition: transform 0.3s var(--ease), opacity 0.2s var(--ease);
+}
+
+/* Menú desplegable móvil */
+.nav__mobile {
+  display: none;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0 var(--gutter) 1.2rem;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 0 90px;
+}
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.4rem;
+  max-width: 880px;
+}
+.hero__logo {
+  width: clamp(84px, 12vw, 128px);
+  height: auto;
+}
+.hero__title {
+  font-size: clamp(2.6rem, 7vw, 5.4rem);
+  line-height: 1.03;
+  letter-spacing: -0.025em;
+}
+.hero__lead {
+  max-width: 620px;
+  color: var(--texto-muted);
+  font-size: clamp(1.05rem, 2.2vw, 1.28rem);
+}
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.6rem;
+}
+.hero__stats {
+  display: flex;
+  gap: clamp(1.5rem, 6vw, 3.6rem);
+  margin-top: 1.6rem;
+}
+.hero__stats li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+/* ============================================================
+   SECCIONES (rejillas)
+   ============================================================ */
+.section {
+  position: relative;
+  padding: clamp(72px, 10vw, 132px) 0;
+  scroll-margin-top: 80px;
+}
+.section__head {
+  max-width: 720px;
+  margin-bottom: clamp(2.4rem, 5vw, 4rem);
+}
+
+/* Servicios */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+/* Proceso */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.6rem;
+}
+
+/* Resultados interactivos */
+.results {
+  display: grid;
+  grid-template-columns: minmax(230px, 0.8fr) 1.2fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+/* Nosotros */
+.about {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  position: relative;
+  border-top: 1px solid var(--borde);
+  padding: clamp(3rem, 6vw, 4.5rem) 0 2rem;
+  background: rgba(var(--fondo-rgb), 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr 1fr;
+  gap: 2rem;
+}
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2.6rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--borde);
+}
+
+/* ============================================================
+   RESPONSIVE — Tablet (<= 900px)
+   ============================================================ */
+@media (max-width: 900px) {
+  .nav__links,
+  .nav__cta {
+    display: none;
+  }
+  .nav__toggle {
+    display: flex;
+  }
+  .nav.open .nav__mobile {
+    display: flex;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .results {
+    grid-template-columns: 1fr;
+  }
+  .results__tabs {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+  }
+  .results__tab {
+    flex: 0 0 auto;
+  }
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.8rem;
+  }
+  .about {
+    grid-template-columns: 1fr;
+  }
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer__brand {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — Móvil (<= 500px)
+   ============================================================ */
+@media (max-width: 500px) {
+  .cards,
+  .steps {
+    grid-template-columns: 1fr;
+  }
+  .cta__lines .btn {
+    width: 100%;
+  }
+  .hero__stats {
+    gap: 1.4rem;
+  }
+  .hero__actions {
+    width: 100%;
+    flex-direction: column;
+  }
+  .hero__actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .footer__grid {
+    grid-template-columns: 1fr;
+  }
+  .footer__bottom {
+    justify-content: flex-start;
+  }
+}

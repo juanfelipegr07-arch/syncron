@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Syncron AI — Agencia de automatización con IA para el sector construcción. Agentes, software a medida e integración que ponen la operación de tu obra en piloto automático." />
+  <title>Syncron AI — Automatización inteligente para la construcción</title>
+
+  <!-- Open Graph (previsualización en WhatsApp y redes) -->
+  <meta property="og:title" content="Syncron AI — Automatización para la construcción" />
+  <meta property="og:description" content="Ponemos la operación de tu obra en piloto automático. Agenda un diagnóstico gratuito." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://juanfelipegr07-arch.github.io/syncron/" />
+  <meta property="og:image" content="https://juanfelipegr07-arch.github.io/syncron/assets/logo/logo.png" />
+
+  <link rel="icon" href="assets/logo/logo.svg" type="image/svg+xml" />
+
+  <!-- Google Fonts (única excepción permitida en el head) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- CSS en orden: reset -> layout -> components -> animations -->
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+  <a class="skip-link" href="#top">Saltar al contenido</a>
+
+  <!-- 1 · Barra de progreso de scroll -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- 2 · Fondo 3D + vignette -->
+  <div class="scene-layer" aria-hidden="true">
+    <canvas id="scene-canvas"></canvas>
+    <div class="scene-vignette"></div>
+  </div>
+
+  <!-- 3 · Navegación -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="nav__brand" href="#top" aria-label="Syncron AI, ir al inicio">
+        <img class="nav__logo" data-logo src="assets/logo/logo.png" alt="Logo de Syncron AI" width="38" height="38" />
+        <span class="nav__name">SYNCRON<span class="nav__name-accent"> AI</span></span>
+      </a>
+
+      <nav class="nav__links" aria-label="Navegación principal">
+        <a href="#servicios">Servicios</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Hablemos</a>
+      </nav>
+
+      <a class="btn btn--primary nav__cta" href="#contacto">Agenda tu diagnóstico</a>
+
+      <button class="nav__toggle" id="nav-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-mobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <nav class="nav__mobile" id="nav-mobile" aria-label="Navegación móvil">
+      <a href="#servicios">Servicios</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Hablemos</a>
+      <a class="btn btn--primary" href="#contacto">Agenda tu diagnóstico</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- 4 · Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+        <img class="hero__logo reveal" data-logo src="assets/logo/logo.png" alt="Syncron AI" width="120" height="120" />
+        <p class="kicker reveal">Agencia de automatización con IA · Construcción</p>
+        <h1 class="hero__title reveal" id="hero-title">Tu obra en <em>piloto automático</em></h1>
+        <p class="hero__lead reveal">Flujos inteligentes, autónomos y conectados para constructoras. Sin software genérico: sistemas hechos a la medida de tu obra.</p>
+
+        <div class="hero__actions reveal">
+          <a class="btn btn--primary btn--lg" data-wa href="https://wa.me/573217672631?text=Hola%2C%20quiero%20automatizar%20procesos%20de%20mi%20obra" target="_blank" rel="noopener noreferrer">Agenda tu diagnóstico</a>
+          <a class="btn btn--ghost btn--lg" href="#servicios">Ver servicios</a>
+        </div>
+
+        <ul class="hero__stats reveal">
+          <li><strong>100%</strong><span>Automatizado</span></li>
+          <li><strong>24/7</strong><span>Sin pausas</span></li>
+          <li><strong>0</strong><span>Errores</span></li>
+        </ul>
+      </div>
+
+      <a class="hero__scroll" href="#servicios" aria-label="Bajar a servicios">
+        <span class="hero__scroll-line"></span>
+      </a>
+    </section>
+
+    <!-- 5 · Marquesina de tecnologías -->
+    <div class="marquee" aria-label="Tecnologías que usamos">
+      <div class="marquee__track">
+        <span class="marquee__item">n8n</span>
+        <span class="marquee__item">Claude</span>
+        <span class="marquee__item">GPT-4</span>
+        <span class="marquee__item">WhatsApp API</span>
+        <span class="marquee__item">Python</span>
+        <span class="marquee__item">Node.js</span>
+        <span class="marquee__item">PostgreSQL</span>
+        <span class="marquee__item">Docker</span>
+        <span class="marquee__item">Webhooks</span>
+        <span class="marquee__item">Make</span>
+        <span class="marquee__item">REST APIs</span>
+        <span class="marquee__item">CRM</span>
+        <span class="marquee__item" aria-hidden="true">n8n</span>
+        <span class="marquee__item" aria-hidden="true">Claude</span>
+        <span class="marquee__item" aria-hidden="true">GPT-4</span>
+        <span class="marquee__item" aria-hidden="true">WhatsApp API</span>
+        <span class="marquee__item" aria-hidden="true">Python</span>
+        <span class="marquee__item" aria-hidden="true">Node.js</span>
+        <span class="marquee__item" aria-hidden="true">PostgreSQL</span>
+        <span class="marquee__item" aria-hidden="true">Docker</span>
+        <span class="marquee__item" aria-hidden="true">Webhooks</span>
+        <span class="marquee__item" aria-hidden="true">Make</span>
+        <span class="marquee__item" aria-hidden="true">REST APIs</span>
+        <span class="marquee__item" aria-hidden="true">CRM</span>
+      </div>
+    </div>
+
+    <!-- 6 · Servicios -->
+    <section class="section" id="servicios" aria-labelledby="servicios-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="kicker">Lo que hacemos</p>
+          <h2 class="section__title" id="servicios-title">Automatización pensada para la <em>obra</em></h2>
+          <p class="section__intro">Seis frentes de trabajo para quitarle a tu operación el papeleo, la digitación y los seguimientos manuales.</p>
+        </header>
+
+        <div class="cards">
+          <article class="card reveal">
+            <span class="card__num">01</span>
+            <h3 class="card__title">Automatización de flujos</h3>
+            <p class="card__text">Conectamos tus apps y hojas de cálculo para que cotizaciones, avances de obra y órdenes de compra se muevan solos, sin digitar dos veces lo mismo.</p>
+            <div class="card__tags"><span>n8n</span><span>Webhooks</span><span>APIs</span></div>
+          </article>
+
+          <article class="card reveal">
+            <span class="card__num">02</span>
+            <h3 class="card__title">Agentes de IA</h3>
+            <p class="card__text">Asistentes que responden a tu equipo en obra, arman cotizaciones y hacen seguimiento a proveedores por WhatsApp, a cualquier hora del día.</p>
+            <div class="card__tags"><span>Claude</span><span>GPT-4</span><span>WhatsApp</span></div>
+          </article>
+
+          <article class="card reveal">
+            <span class="card__num">03</span>
+            <h3 class="card__title">Integración de sistemas</h3>
+            <p class="card__text">Unimos tu CRM, tu contabilidad y tus planillas de campo en una sola fuente de verdad. Los datos de la obra fluyen en tiempo real.</p>
+            <div class="card__tags"><span>REST</span><span>CRM</span><span>ERP</span></div>
+          </article>
+
+          <article class="card reveal">
+            <span class="card__num">04</span>
+            <h3 class="card__title">Software a medida</h3>
+            <p class="card__text">No te adaptamos a un programa genérico: construimos la herramienta que tu obra necesita —control de avance, actas, bitácora, inventario.</p>
+            <div class="card__tags"><span>A medida</span><span>Web</span><span>Móvil</span></div>
+          </article>
+
+          <article class="card reveal">
+            <span class="card__num">05</span>
+            <h3 class="card__title">CRM automatizado</h3>
+            <p class="card__text">Cada cliente, cotización y proyecto se actualiza solo. Seguimientos en el momento justo y cero oportunidades de negocio perdidas.</p>
+            <div class="card__tags"><span>Leads</span><span>Pipeline</span><span>Auto</span></div>
+          </article>
+
+          <article class="card reveal">
+            <span class="card__num">06</span>
+            <h3 class="card__title">Procesos a medida</h3>
+            <p class="card__text">Facturación, valuaciones, reportes de obra, control de cuadrillas y proveedores. Automatizamos el papeleo que frena el avance.</p>
+            <div class="card__tags"><span>Reportes</span><span>Docs</span><span>Control</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 · Proceso -->
+    <section class="section" id="proceso" aria-labelledby="proceso-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="kicker">Nuestro proceso</p>
+          <h2 class="section__title" id="proceso-title">De la obra al <em>piloto automático</em></h2>
+          <p class="section__intro">Cuatro pasos claros. Sin sorpresas, sin proyectos eternos.</p>
+        </header>
+
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step__num">01</span>
+            <h3 class="step__title">Diagnóstico</h3>
+            <p class="step__text">Entramos a tu operación, recorremos el flujo de la obra y encontramos los cuellos de botella: dónde se pierde tiempo y dónde se cometen errores.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">02</span>
+            <h3 class="step__title">Diseño</h3>
+            <p class="step__text">Diseñamos el sistema a tu medida: qué se automatiza, qué herramientas se conectan y qué decisiones toma la IA por ti.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">03</span>
+            <h3 class="step__title">Construcción</h3>
+            <p class="step__text">Levantamos los flujos, agentes e integraciones. Código limpio, documentado y probado con datos reales de tu obra.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">04</span>
+            <h3 class="step__title">Lanzamiento</h3>
+            <p class="step__text">Activamos el sistema, lo monitoreamos en obra y lo ajustamos. Tu operación empieza a correr en piloto automático.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 8 · Por qué elegirnos -->
+    <section class="section" id="beneficios" aria-labelledby="beneficios-title">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="kicker">Por qué elegirnos</p>
+          <h2 class="section__title" id="beneficios-title">No vendemos horas. <em>Vendemos resultados.</em></h2>
+          <p class="section__intro">Elige un resultado y mira qué cambia en tu operación.</p>
+        </header>
+
+        <div class="results reveal">
+          <div class="results__tabs" role="tablist" aria-label="Resultados en tu operación" aria-orientation="vertical">
+            <button class="results__tab is-active" type="button" role="tab" id="tab-tiempo" aria-controls="panel-tiempo" aria-selected="true" tabindex="0">
+              <span class="results__tab-num">01</span>
+              <span>Tiempo recuperado</span>
+            </button>
+            <button class="results__tab" type="button" role="tab" id="tab-errores" aria-controls="panel-errores" aria-selected="false" tabindex="-1">
+              <span class="results__tab-num">02</span>
+              <span>Cero errores</span>
+            </button>
+            <button class="results__tab" type="button" role="tab" id="tab-escala" aria-controls="panel-escala" aria-selected="false" tabindex="-1">
+              <span class="results__tab-num">03</span>
+              <span>Escalabilidad real</span>
+            </button>
+            <button class="results__tab" type="button" role="tab" id="tab-medida" aria-controls="panel-medida" aria-selected="false" tabindex="-1">
+              <span class="results__tab-num">04</span>
+              <span>Hecho a tu medida</span>
+            </button>
+            <button class="results__tab" type="button" role="tab" id="tab-tecnologia" aria-controls="panel-tecnologia" aria-selected="false" tabindex="-1">
+              <span class="results__tab-num">05</span>
+              <span>Tecnología de punta</span>
+            </button>
+            <button class="results__tab" type="button" role="tab" id="tab-produccion" aria-controls="panel-produccion" aria-selected="false" tabindex="-1">
+              <span class="results__tab-num">06</span>
+              <span>Listo para producción</span>
+            </button>
+          </div>
+
+          <div class="results__panel">
+            <article class="results__detail is-active" role="tabpanel" id="panel-tiempo" aria-labelledby="tab-tiempo" tabindex="0">
+              <h3 class="results__heading">Tiempo recuperado</h3>
+              <div class="results__block results__block--antes">
+                <span class="results__label">Hoy en tu obra</span>
+                <p>El residente termina la jornada digitando avances en Excel y armando el informe para gerencia a punta de WhatsApp y fotos sueltas.</p>
+              </div>
+              <div class="results__flow" aria-hidden="true"></div>
+              <div class="results__block results__block--despues">
+                <span class="results__label">Con Syncron</span>
+                <p>El avance se registra una sola vez en obra. El informe se arma y se envía solo, todos los días, a la hora que definas.</p>
+              </div>
+            </article>
+
+            <article class="results__detail" role="tabpanel" id="panel-errores" aria-labelledby="tab-errores" tabindex="0">
+              <h3 class="results__heading">Cero errores</h3>
+              <div class="results__block results__block--antes">
+                <span class="results__label">Hoy en tu obra</span>
+                <p>Una cifra mal copiada entre la planilla y la cotización le llega al cliente, y toca recotizar y dar explicaciones.</p>
+              </div>
+              <div class="results__flow" aria-hidden="true"></div>
+              <div class="results__block results__block--despues">
+                <span class="results__label">Con Syncron</span>
+                <p>Cotizaciones, actas y reportes salen siempre de la misma base validada. Sin retranscripciones, sin versiones viejas.</p>
+              </div>
+            </article>
+
+            <article class="results__detail" role="tabpanel" id="panel-escala" aria-labelledby="tab-escala" tabindex="0">
+              <h3 class="results__heading">Escalabilidad real</h3>
+              <div class="results__block results__block--antes">
+                <span class="results__label">Hoy en tu obra</span>
+                <p>Tomar una obra más significa contratar otra persona solo para papeleo, seguimiento y llamadas a proveedores.</p>
+              </div>
+              <div class="results__flow" aria-hidden="true"></div>
+              <div class="results__block results__block--despues">
+                <span class="results__label">Con Syncron</span>
+                <p>El mismo equipo maneja más frentes: el sistema absorbe lo repetitivo y tu gente se dedica a construir.</p>
+              </div>
+            </article>
+
+            <article class="results__detail" role="tabpanel" id="panel-medida" aria-labelledby="tab-medida" tabindex="0">
+              <h3 class="results__heading">Hecho a tu medida</h3>
+              <div class="results__block results__block--antes">
+                <span class="results__label">Hoy en tu obra</span>
+                <p>El software genérico te obliga a trabajar como él quiere… y la operación real termina otra vez en Excel y chats.</p>
+              </div>
+              <div class="results__flow" aria-hidden="true"></div>
+              <div class="results__block results__block--despues">
+                <span class="results__label">Con Syncron</span>
+                <p>La herramienta se construye sobre tu flujo real: tus actas, tus proveedores, tus reglas de negocio.</p>
+              </div>
+            </article>
+
+            <article class="results__detail" role="tabpanel" id="panel-tecnologia" aria-labelledby="tab-tecnologia" tabindex="0">
+              <h3 class="results__heading">Tecnología de punta</h3>
+              <div class="results__block results__block--antes">
+                <span class="results__label">Hoy en tu obra</span>
+                <p>La información de la obra vive regada en chats, fotos, correos y planillas que nadie logra consolidar.</p>
+              </div>
+              <div class="results__flow" aria-hidden="true"></div>
+              <div class="results__block results__block--despues">
+                <span class="results__label">Con Syncron</span>
+                <p>IA de última generación lee, organiza y conecta esa información en una sola fuente de verdad, al día.</p>
+              </div>
+            </article>
+
+            <article class="results__detail" role="tabpanel" id="panel-produccion" aria-labelledby="tab-produccion" tabindex="0">
+              <h3 class="results__heading">Listo para producción</h3>
+              <div class="results__block results__block--antes">
+                <span class="results__label">Hoy en tu obra</span>
+                <p>Te entregan un demo bonito en una reunión, pero nunca llega a funcionar de verdad en la obra.</p>
+              </div>
+              <div class="results__flow" aria-hidden="true"></div>
+              <div class="results__block results__block--despues">
+                <span class="results__label">Con Syncron</span>
+                <p>Entregamos el sistema andando en tu operación: probado con tus datos, documentado y con acompañamiento.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9 · Nosotros -->
+    <section class="section" id="nosotros" aria-labelledby="nosotros-title">
+      <div class="container about">
+        <div class="about__text reveal">
+          <p class="kicker">Quiénes somos</p>
+          <h2 class="section__title" id="nosotros-title">El socio técnico que <em>entiende la obra</em></h2>
+          <p class="about__lead">Syncron AI no es una agencia de marketing que descubrió la IA la semana pasada. Somos ingeniería enfocada en un solo sector —la construcción— porque conocemos cómo se mueve una obra.</p>
+          <p class="about__body">Sabemos qué es una valuación, un acta parcial, una orden de compra a destiempo y una cuadrilla parada esperando material. Traducimos ese caos operativo en sistemas que trabajan solos. No vendemos horas ni humo: entregamos resultados que puedes medir en tu operación.</p>
+        </div>
+
+        <ul class="about__principles reveal">
+          <li>
+            <span class="about__principle-label">Especialistas, no generalistas</span>
+            <span class="about__principle-text">100% enfocados en construcción.</span>
+          </li>
+          <li>
+            <span class="about__principle-label">Ingeniería, no plantillas</span>
+            <span class="about__principle-text">Software y automatización a la medida.</span>
+          </li>
+          <li>
+            <span class="about__principle-label">Resultados, no horas</span>
+            <span class="about__principle-text">Sistemas que operan, no presentaciones.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 10 · CTA final -->
+    <section class="section cta" id="contacto" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta__card reveal">
+          <img class="cta__logo" data-logo src="assets/logo/logo.png" alt="Syncron AI" width="72" height="72" />
+          <p class="kicker">El futuro de tu operación</p>
+          <h2 class="cta__title" id="cta-title">Agenda tu diagnóstico <em>gratuito</em></h2>
+          <p class="cta__subtitle">Analizamos tu operación, identificamos qué se puede automatizar en tu obra y te mostramos exactamente cómo hacerlo. Sin compromiso.</p>
+          <div class="cta__lines">
+            <a class="btn btn--primary btn--lg" data-wa href="https://wa.me/573217672631?text=Hola%2C%20quiero%20automatizar%20procesos%20de%20mi%20obra" target="_blank" rel="noopener noreferrer">
+              <svg class="btn__wa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.8 14.13c-.24.69-1.42 1.32-1.95 1.36-.5.05-.98.24-3.3-.69-2.79-1.1-4.57-3.95-4.71-4.13-.14-.19-1.13-1.5-1.13-2.86s.71-2.03.97-2.31c.24-.28.53-.35.71-.35l.51.01c.16.01.38-.06.6.46.24.55.79 1.92.86 2.06.07.14.12.3.02.49-.1.19-.15.3-.29.46l-.43.5c-.14.14-.29.3-.12.58.16.28.72 1.19 1.55 1.93 1.06.95 1.96 1.24 2.24 1.38.28.14.44.12.6-.07.16-.19.69-.81.88-1.09.19-.28.37-.23.62-.14.25.09 1.6.75 1.87.89.28.14.46.21.53.32.07.12.07.66-.17 1.35Z"/></svg>
+              WhatsApp · +57 321 767 2631
+            </a>
+            <a class="btn btn--primary btn--lg" data-wa href="https://wa.me/573053250497?text=Hola%2C%20quiero%20automatizar%20procesos%20de%20mi%20obra" target="_blank" rel="noopener noreferrer">
+              <svg class="btn__wa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm5.8 14.13c-.24.69-1.42 1.32-1.95 1.36-.5.05-.98.24-3.3-.69-2.79-1.1-4.57-3.95-4.71-4.13-.14-.19-1.13-1.5-1.13-2.86s.71-2.03.97-2.31c.24-.28.53-.35.71-.35l.51.01c.16.01.38-.06.6.46.24.55.79 1.92.86 2.06.07.14.12.3.02.49-.1.19-.15.3-.29.46l-.43.5c-.14.14-.29.3-.12.58.16.28.72 1.19 1.55 1.93 1.06.95 1.96 1.24 2.24 1.38.28.14.44.12.6-.07.16-.19.69-.81.88-1.09.19-.28.37-.23.62-.14.25.09 1.6.75 1.87.89.28.14.46.21.53.32.07.12.07.66-.17 1.35Z"/></svg>
+              WhatsApp · +57 305 325 0497
+            </a>
+          </div>
+          <p class="cta__note">Respuesta en menos de 24 horas</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 11 · Footer -->
+  <footer class="footer" aria-label="Pie de página">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a class="nav__brand" href="#top" aria-label="Syncron AI, ir al inicio">
+          <img class="nav__logo" data-logo src="assets/logo/logo.png" alt="Syncron AI" width="34" height="34" />
+          <span class="nav__name">SYNCRON<span class="nav__name-accent"> AI</span></span>
+        </a>
+        <p class="footer__tagline">Automatización inteligente para la construcción.</p>
+      </div>
+
+      <div class="footer__col">
+        <h4>Servicios</h4>
+        <a href="#servicios">Automatización de flujos</a>
+        <a href="#servicios">Agentes de IA</a>
+        <a href="#servicios">Integración de sistemas</a>
+        <a href="#servicios">Software a medida</a>
+      </div>
+
+      <div class="footer__col">
+        <h4>Empresa</h4>
+        <a href="#proceso">Proceso</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Hablemos</a>
+        <a data-wa href="https://wa.me/573217672631?text=Hola%2C%20quiero%20automatizar%20procesos%20de%20mi%20obra" target="_blank" rel="noopener noreferrer">WhatsApp · 321 767 2631</a>
+        <a data-wa href="https://wa.me/573053250497?text=Hola%2C%20quiero%20automatizar%20procesos%20de%20mi%20obra" target="_blank" rel="noopener noreferrer">WhatsApp · 305 325 0497</a>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <span>© 2026 Syncron AI — Colombia</span>
+      <span>Automatización · IA · Construcción</span>
+    </div>
+  </footer>
+
+  <!-- 12 · Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <span class="toast__dot" aria-hidden="true"></span>
+    <span class="toast__text" id="toast-text"></span>
+  </div>
+
+  <!-- Three.js (CDN r128) antes de scene.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- JS en orden: scene -> interactions -> forms -->
+  <script src="js/scene.js" defer></script>
+  <script src="js/interactions.js" defer></script>
+  <script src="js/forms.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+/* ============================================================
+   RESET.CSS — Syncron AI
+   Reset + box-sizing + variables globales de marca (:root)
+   ============================================================ */
+
+:root {
+  /* --- Paleta (extraída del logo · innegociable) --- */
+  --fondo: #03080E;             /* negro Syncron, casi negro azulado */
+  --fondo-rgb: 3, 8, 14;
+  --superficie: rgba(15, 22, 34, 0.55);   /* tarjetas translúcidas */
+  --superficie-solida: #0F1622;            /* tarjetas opacas (toast) */
+
+  --texto: #F4F5F7;             /* blanco cálido */
+  --texto-muted: #8A909C;       /* gris azulado */
+
+  --naranja: #F26722;           /* acento primario */
+  --naranja-rgb: 242, 103, 34;
+  --naranja-claro: #F7941D;     /* variante para hovers */
+  --amarillo: #FDB515;          /* acento secundario (nodos) */
+  --amarillo-rgb: 253, 181, 21;
+
+  /* --- Bordes y sombras --- */
+  --borde: rgba(var(--naranja-rgb), 0.14);
+  --borde-fuerte: rgba(var(--naranja-rgb), 0.34);
+  --sombra-glow: 0 22px 60px -24px rgba(var(--naranja-rgb), 0.45);
+  --sombra-suave: 0 18px 50px -20px rgba(0, 0, 0, 0.7);
+
+  /* --- Tipografía --- */
+  --fuente-titulo: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
+  --fuente-cuerpo: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --fuente-mono: 'Space Mono', ui-monospace, 'Cascadia Code', monospace;
+
+  /* --- Layout --- */
+  --container: 1160px;
+  --gutter: 24px;
+  --radio: 4px;
+  --radio-lg: 8px;
+
+  /* --- Movimiento --- */
+  --ease: cubic-bezier(0.2, 0.9, 0.3, 1);
+}
+
+/* --- Reset base --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: var(--fuente-cuerpo);
+  font-weight: 400;
+  line-height: 1.7;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--fuente-titulo);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+/* --- Foco visible por teclado --- */
+:focus-visible {
+  outline: 2px solid var(--naranja);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* --- Enlace de salto (accesibilidad) --- */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 400;
+  padding: 0.7rem 1.1rem;
+  background: var(--naranja);
+  color: #0A0500;
+  font-family: var(--fuente-mono);
+  font-size: 0.8rem;
+  border-radius: var(--radio);
+  transition: top 0.2s var(--ease);
+}
+.skip-link:focus {
+  top: 16px;
+}

@@ -21,10 +21,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 
   <!-- CSS en orden: reset -> layout -> components -> animations -->
-  <link rel="stylesheet" href="css/reset.css" />
-  <link rel="stylesheet" href="css/layout.css" />
-  <link rel="stylesheet" href="css/components.css" />
-  <link rel="stylesheet" href="css/animations.css" />
+  <!-- El ?v=2 fuerza a los navegadores a bajar la versión correcta tras cada cambio -->
+  <link rel="stylesheet" href="css/reset.css?v=2" />
+  <link rel="stylesheet" href="css/layout.css?v=2" />
+  <link rel="stylesheet" href="css/components.css?v=2" />
+  <link rel="stylesheet" href="css/animations.css?v=2" />
 </head>
 <body>
   <a class="skip-link" href="#top">Saltar al contenido</a>
@@ -370,8 +371,8 @@
   <!-- Three.js (CDN r128) antes de scene.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <!-- JS en orden: scene -> interactions -> forms -->
-  <script src="js/scene.js" defer></script>
-  <script src="js/interactions.js" defer></script>
-  <script src="js/forms.js" defer></script>
+  <script src="js/scene.js?v=2" defer></script>
+  <script src="js/interactions.js?v=2" defer></script>
+  <script src="js/forms.js?v=2" defer></script>
 </body>
 </html>

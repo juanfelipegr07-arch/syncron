@@ -101,6 +101,7 @@
   font-weight: 700;
   font-size: 1.15rem;
   letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 .nav__name-accent {
   color: var(--naranja);
@@ -152,6 +153,8 @@
 .hero {
   position: relative;
   min-height: 100vh;
+  /* En móvil, svh descuenta la barra del navegador (iOS/Android) */
+  min-height: 100svh;
   display: flex;
   align-items: center;
   padding: 120px 0 90px;
@@ -269,8 +272,9 @@
    RESPONSIVE — Tablet (<= 900px)
    ============================================================ */
 @media (max-width: 900px) {
+  /* .nav .nav__cta gana en especificidad a .btn (que carga después) */
   .nav__links,
-  .nav__cta {
+  .nav .nav__cta {
     display: none;
   }
   .nav__toggle {

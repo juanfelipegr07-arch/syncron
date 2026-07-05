@@ -66,38 +66,13 @@
     });
   });
 
-  /* --- Panel interactivo "Vendemos resultados" (tabs accesibles) --- */
-  var tabs = Array.prototype.slice.call(document.querySelectorAll(".results__tab"));
-  if (tabs.length) {
-    var panels = document.querySelectorAll(".results__detail");
-
-    var activarTab = function (tab) {
-      tabs.forEach(function (t) {
-        var activo = t === tab;
-        t.classList.toggle("is-active", activo);
-        t.setAttribute("aria-selected", activo ? "true" : "false");
-        t.setAttribute("tabindex", activo ? "0" : "-1");
-      });
-      panels.forEach(function (p) {
-        p.classList.toggle("is-active", p.id === tab.getAttribute("aria-controls"));
-      });
-    };
-
-    tabs.forEach(function (tab, i) {
-      tab.addEventListener("click", function () {
-        activarTab(tab);
-      });
-      tab.addEventListener("keydown", function (e) {
-        var destino = null;
-        if (e.key === "ArrowDown" || e.key === "ArrowRight") destino = (i + 1) % tabs.length;
-        else if (e.key === "ArrowUp" || e.key === "ArrowLeft") destino = (i - 1 + tabs.length) % tabs.length;
-        else if (e.key === "Home") destino = 0;
-        else if (e.key === "End") destino = tabs.length - 1;
-        if (destino !== null) {
-          e.preventDefault();
-          tabs[destino].focus();
-          activarTab(tabs[destino]);
-        }
+  /* --- Beneficios: el foco naranja sigue al cursor dentro de la tarjeta --- */
+  if (!reduce && window.matchMedia("(hover: hover)").matches) {
+    document.querySelectorAll(".benefit").forEach(function (card) {
+      card.addEventListener("pointermove", function (e) {
+        var r = card.getBoundingClientRect();
+        card.style.setProperty("--mx", (e.clientX - r.left) + "px");
+        card.style.setProperty("--my", (e.clientY - r.top) + "px");
       });
     });
   }

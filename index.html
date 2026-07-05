@@ -221,116 +221,56 @@
         <header class="section__head reveal">
           <p class="kicker">Por qué elegirnos</p>
           <h2 class="section__title" id="beneficios-title">No vendemos horas. <em>Vendemos resultados.</em></h2>
-          <p class="section__intro">Elige un resultado y mira qué cambia en tu operación.</p>
         </header>
 
-        <div class="results reveal">
-          <div class="results__tabs" role="tablist" aria-label="Resultados en tu operación" aria-orientation="vertical">
-            <button class="results__tab is-active" type="button" role="tab" id="tab-tiempo" aria-controls="panel-tiempo" aria-selected="true" tabindex="0">
-              <span class="results__tab-num">01</span>
-              <span>Tiempo recuperado</span>
-            </button>
-            <button class="results__tab" type="button" role="tab" id="tab-errores" aria-controls="panel-errores" aria-selected="false" tabindex="-1">
-              <span class="results__tab-num">02</span>
-              <span>Cero errores</span>
-            </button>
-            <button class="results__tab" type="button" role="tab" id="tab-escala" aria-controls="panel-escala" aria-selected="false" tabindex="-1">
-              <span class="results__tab-num">03</span>
-              <span>Escalabilidad real</span>
-            </button>
-            <button class="results__tab" type="button" role="tab" id="tab-medida" aria-controls="panel-medida" aria-selected="false" tabindex="-1">
-              <span class="results__tab-num">04</span>
-              <span>Hecho a tu medida</span>
-            </button>
-            <button class="results__tab" type="button" role="tab" id="tab-tecnologia" aria-controls="panel-tecnologia" aria-selected="false" tabindex="-1">
-              <span class="results__tab-num">05</span>
-              <span>Tecnología de punta</span>
-            </button>
-            <button class="results__tab" type="button" role="tab" id="tab-produccion" aria-controls="panel-produccion" aria-selected="false" tabindex="-1">
-              <span class="results__tab-num">06</span>
-              <span>Listo para producción</span>
-            </button>
-          </div>
+        <div class="benefits">
+          <article class="benefit reveal">
+            <span class="benefit__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" pathLength="1"/><path d="M12 7v5l3 2" pathLength="1"/></svg>
+            </span>
+            <h3 class="benefit__title">Tiempo recuperado</h3>
+            <p class="benefit__text">Tu equipo deja de digitar y perseguir información. El sistema hace el trabajo repetitivo mientras ustedes construyen.</p>
+          </article>
 
-          <div class="results__panel">
-            <article class="results__detail is-active" role="tabpanel" id="panel-tiempo" aria-labelledby="tab-tiempo" tabindex="0">
-              <h3 class="results__heading">Tiempo recuperado</h3>
-              <div class="results__block results__block--antes">
-                <span class="results__label">Hoy en tu obra</span>
-                <p>El residente termina la jornada digitando avances en Excel y armando el informe para gerencia a punta de WhatsApp y fotos sueltas.</p>
-              </div>
-              <div class="results__flow" aria-hidden="true"></div>
-              <div class="results__block results__block--despues">
-                <span class="results__label">Con Syncron</span>
-                <p>El avance se registra una sola vez en obra. El informe se arma y se envía solo, todos los días, a la hora que definas.</p>
-              </div>
-            </article>
+          <article class="benefit reveal">
+            <span class="benefit__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z" pathLength="1"/><path d="M9 12l2 2 4-4" pathLength="1"/></svg>
+            </span>
+            <h3 class="benefit__title">Cero errores</h3>
+            <p class="benefit__text">Los sistemas no se cansan ni olvidan un paso. Cada cotización, acta y reporte sale bien, siempre.</p>
+          </article>
 
-            <article class="results__detail" role="tabpanel" id="panel-errores" aria-labelledby="tab-errores" tabindex="0">
-              <h3 class="results__heading">Cero errores</h3>
-              <div class="results__block results__block--antes">
-                <span class="results__label">Hoy en tu obra</span>
-                <p>Una cifra mal copiada entre la planilla y la cotización le llega al cliente, y toca recotizar y dar explicaciones.</p>
-              </div>
-              <div class="results__flow" aria-hidden="true"></div>
-              <div class="results__block results__block--despues">
-                <span class="results__label">Con Syncron</span>
-                <p>Cotizaciones, actas y reportes salen siempre de la misma base validada. Sin retranscripciones, sin versiones viejas.</p>
-              </div>
-            </article>
+          <article class="benefit reveal">
+            <span class="benefit__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8" pathLength="1"/><path d="M17 7h4v4" pathLength="1"/></svg>
+            </span>
+            <h3 class="benefit__title">Escalabilidad real</h3>
+            <p class="benefit__text">Toma más obras sin sumar personal administrativo. Tu operación crece contigo, no en tu contra.</p>
+          </article>
 
-            <article class="results__detail" role="tabpanel" id="panel-escala" aria-labelledby="tab-escala" tabindex="0">
-              <h3 class="results__heading">Escalabilidad real</h3>
-              <div class="results__block results__block--antes">
-                <span class="results__label">Hoy en tu obra</span>
-                <p>Tomar una obra más significa contratar otra persona solo para papeleo, seguimiento y llamadas a proveedores.</p>
-              </div>
-              <div class="results__flow" aria-hidden="true"></div>
-              <div class="results__block results__block--despues">
-                <span class="results__label">Con Syncron</span>
-                <p>El mismo equipo maneja más frentes: el sistema absorbe lo repetitivo y tu gente se dedica a construir.</p>
-              </div>
-            </article>
+          <article class="benefit reveal">
+            <span class="benefit__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14L14 4l6 6L10 20z" pathLength="1"/><path d="M8.5 9.5l2 2M11.5 6.5l2 2M14.5 9.5l2 2" pathLength="1"/></svg>
+            </span>
+            <h3 class="benefit__title">Hecho a tu medida</h3>
+            <p class="benefit__text">Cada solución se construye sobre tu obra real, tus proveedores y tus reglas de negocio. Nada de plantillas.</p>
+          </article>
 
-            <article class="results__detail" role="tabpanel" id="panel-medida" aria-labelledby="tab-medida" tabindex="0">
-              <h3 class="results__heading">Hecho a tu medida</h3>
-              <div class="results__block results__block--antes">
-                <span class="results__label">Hoy en tu obra</span>
-                <p>El software genérico te obliga a trabajar como él quiere… y la operación real termina otra vez en Excel y chats.</p>
-              </div>
-              <div class="results__flow" aria-hidden="true"></div>
-              <div class="results__block results__block--despues">
-                <span class="results__label">Con Syncron</span>
-                <p>La herramienta se construye sobre tu flujo real: tus actas, tus proveedores, tus reglas de negocio.</p>
-              </div>
-            </article>
+          <article class="benefit reveal">
+            <span class="benefit__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="1" pathLength="1"/><rect x="10" y="10" width="4" height="4" pathLength="1"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3" pathLength="1"/></svg>
+            </span>
+            <h3 class="benefit__title">Tecnología de punta</h3>
+            <p class="benefit__text">Las mismas herramientas de IA que usan las empresas más avanzadas del mundo, puestas al servicio de tu obra.</p>
+          </article>
 
-            <article class="results__detail" role="tabpanel" id="panel-tecnologia" aria-labelledby="tab-tecnologia" tabindex="0">
-              <h3 class="results__heading">Tecnología de punta</h3>
-              <div class="results__block results__block--antes">
-                <span class="results__label">Hoy en tu obra</span>
-                <p>La información de la obra vive regada en chats, fotos, correos y planillas que nadie logra consolidar.</p>
-              </div>
-              <div class="results__flow" aria-hidden="true"></div>
-              <div class="results__block results__block--despues">
-                <span class="results__label">Con Syncron</span>
-                <p>IA de última generación lee, organiza y conecta esa información en una sola fuente de verdad, al día.</p>
-              </div>
-            </article>
-
-            <article class="results__detail" role="tabpanel" id="panel-produccion" aria-labelledby="tab-produccion" tabindex="0">
-              <h3 class="results__heading">Listo para producción</h3>
-              <div class="results__block results__block--antes">
-                <span class="results__label">Hoy en tu obra</span>
-                <p>Te entregan un demo bonito en una reunión, pero nunca llega a funcionar de verdad en la obra.</p>
-              </div>
-              <div class="results__flow" aria-hidden="true"></div>
-              <div class="results__block results__block--despues">
-                <span class="results__label">Con Syncron</span>
-                <p>Entregamos el sistema andando en tu operación: probado con tus datos, documentado y con acompañamiento.</p>
-              </div>
-            </article>
-          </div>
+          <article class="benefit reveal">
+            <span class="benefit__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L5 13h6l-1 8 8-11h-6z" pathLength="1"/></svg>
+            </span>
+            <h3 class="benefit__title">Listo para producción</h3>
+            <p class="benefit__text">No entregamos prototipos. Entregamos un sistema funcionando, documentado y andando en tu operación.</p>
+          </article>
         </div>
       </div>
     </section>

@@ -223,12 +223,11 @@
   gap: 1.6rem;
 }
 
-/* Resultados interactivos */
-.results {
+/* Beneficios */
+.benefits {
   display: grid;
-  grid-template-columns: minmax(230px, 0.8fr) 1.2fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  align-items: start;
 }
 
 /* Nosotros */
@@ -281,20 +280,9 @@
     display: flex;
   }
 
-  .cards {
+  .cards,
+  .benefits {
     grid-template-columns: repeat(2, 1fr);
-  }
-  .results {
-    grid-template-columns: 1fr;
-  }
-  .results__tabs {
-    flex-direction: row;
-    overflow-x: auto;
-    padding-bottom: 0.5rem;
-    -webkit-overflow-scrolling: touch;
-  }
-  .results__tab {
-    flex: 0 0 auto;
   }
   .steps {
     grid-template-columns: repeat(2, 1fr);
@@ -316,6 +304,7 @@
    ============================================================ */
 @media (max-width: 500px) {
   .cards,
+  .benefits,
   .steps {
     grid-template-columns: 1fr;
   }
